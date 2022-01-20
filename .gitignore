@@ -1,0 +1,10 @@
+__pycache__/
+backup/
+models/
+*.joblib
+*.h5
+*.pickle
+*.csv
+*.bat
+*.zip
+*.pt

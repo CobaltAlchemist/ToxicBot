@@ -51,7 +51,7 @@ user_responses = {
 	'Ew0k#8394': [
 		"Whatever, manlet",
 		"lol short people",
-		"imagine having to look up at people to talk to them"
+		"imagine having to look up at people to talk to them",
 		"keep your vacuum cleaner away from this guy",
 	]
 }

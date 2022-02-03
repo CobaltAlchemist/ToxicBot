@@ -47,6 +47,15 @@ bot_responses = {
 	]
 }
 
+user_responses = {
+	'Ew0k#8394': [
+		"Whatever, manlet",
+		"lol short people",
+		"imagine having to look up at people to talk to them"
+		"keep your vacuum cleaner away from this guy",
+	]
+}
+
 db = ToxicDatabase('toxicbot.csv')
 
 memory = {}
@@ -108,6 +117,10 @@ async def on_ready():
 async def on_message(message):
 	try:
 		if message.author == client.user:
+			if str(message.author) in user_responses and random() > 0.2:
+				print(f"User {message.author} seen")
+				print(f"Bot response sent")
+				await message.channel.send(choice(user_responses[str(message.author)]))
 			return
 		if message.author.bot:
 			print(f"Bot {message.author} seen")

@@ -122,7 +122,6 @@ async def on_message(message):
 		s_author = str(message.author)
 		
 		s = message.content
-		if s.startswith("?stats"):
 		if s.lower().startswith("?stats"):
 			if len(message.mentions) > 0:
 				member = message.mentions[0]

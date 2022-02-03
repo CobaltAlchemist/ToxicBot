@@ -123,6 +123,7 @@ async def on_message(message):
 		
 		s = message.content
 		if s.startswith("?stats"):
+		if s.lower().startswith("?stats"):
 			if len(message.mentions) > 0:
 				member = message.mentions[0]
 				response = get_member_stats(s_guild, member)
@@ -137,13 +138,13 @@ async def on_message(message):
 					await message.channel.send("Sorry, I didn't find any information on this server")
 				else:
 					await message.channel.send(response)
-		elif s.startswith("?why"):
+		elif s.lower().startswith("?why"):
 			response = get_memory(s_guild, s_author, str(message.channel))
 			if response is None:
 				await message.channel.send("Sorry, I didn't find your last message")
 			else:
 				await message.channel.send(response)
-		elif s.startswith("?tokens "):
+		elif s.lower().startswith("?tokens "):
 			if s == "?tokens ":
 				await message.channel.send("Huh? Try ?tokens <type> <message>")
 			type = s.split()[1]
@@ -154,7 +155,7 @@ async def on_message(message):
 				await message.channel.send("Sorry, the given type was not found")
 			else:
 				await message.channel.send(','.join(response))
-		elif s.startswith("?") and len(s) > 1 and not s[1] in " ?":
+		elif s.lower().startswith("?") and len(s) > 1 and not s[1] in " ?":
 			await message.channel.send("Unknown command, try '?stats' for server stats or mention a user for their stats")
 			
 		preds = classify(s) | classify(s.lower()) | classify(s.upper())

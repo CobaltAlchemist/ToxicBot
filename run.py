@@ -117,14 +117,14 @@ async def on_ready():
 async def on_message(message):
 	try:
 		if message.author == client.user:
-			if str(message.author) in user_responses and random() > 0.02:
+			if str(message.author) in user_responses and random() < 0.02:
 				print(f"User {message.author} seen")
 				print(f"Bot response sent")
 				await message.channel.send(choice(user_responses[str(message.author)]))
 			return
 		if message.author.bot:
 			print(f"Bot {message.author} seen")
-			if str(message.author) in bot_responses and random() > 0.2:
+			if str(message.author) in bot_responses and random() < 0.2:
 				print(f"Bot response sent")
 				await message.channel.send(choice(bot_responses[str(message.author)]))
 			return
